@@ -1,0 +1,10 @@
+*
+
+!.gitignore
+!fish/config.fish
+!yabai/yabairc
+!skhd/skhdrc
+!vim/vimrc
+!kitty/kitty.conf
+
+!*/

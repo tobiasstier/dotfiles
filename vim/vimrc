@@ -1,0 +1,51 @@
+:set relativenumber
+" Auto install Plug https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline' "Status bar
+Plug 'vim-airline/vim-airline-themes' "Applicable themes
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} "Nerdtree
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocompletion
+Plug 'tomtom/tcomment_vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'tpope/vim-fugitive' "Git tools
+Plug 'dikiaap/minimalist'
+" All of your Plugins must be added before the following line
+call plug#end()            " required
+
+set ai            " Auto indent
+set wrap          " Wrap lines
+
+" save with zz
+nnoremap zz :update<cr>
+
+" set clipboard to easily copy from vim and paste into OSx
+set clipboard=unnamed
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Changes NerdTree Toggle to Ctrl + n
+map <C-n> :NERDTreeToggle<CR> 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Conquer of Completion 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
