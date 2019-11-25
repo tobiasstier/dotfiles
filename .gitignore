@@ -2,6 +2,7 @@
 
 !.gitignore
 !fish/config.fish
+!fish/fishfile
 !yabai/yabairc
 !skhd/skhdrc
 !vim/vimrc

@@ -1,22 +1,30 @@
 
 # create desktop and follow focus
-cmd + alt - n : yabai -m space --create --focus
-
+alt + cmd - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m space --focus "${index}"
 
 # open terminal, blazingly fast compared to iTerm/Hyper
 cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
 
+# open safari
+cmd + alt - return : /Applications/Safari.app/Contents/MacOS/Safari -d 
 
-# create desktop and follow focus
-cmd + alt - n : chunkc tiling::desktop --create;\
-                id=$(chunkc tiling::query --desktops-for-monitor $(chunkc tiling::query --monitor-for-desktop $(chunkc tiling::query --desktop id)));\
-                chunkc tiling::desktop --focus $(echo ${id##* })
+# create desktop, move window and follow focus - uses jq for parsing json (brew install jq)
+shift + cmd - n : yabai -m space --create && \
+                  index="$(yabai -m query --spaces --display | jq 'map(select(."native-fullscreen" == 0))[-1].index')" && \
+                  yabai -m window --space "${index}" && \
+                  yabai -m space --focus "${index}"
+
 
 # Navigation
 alt - h : yabai -m window --focus west
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
 alt - l : yabai -m window --focus east
+
+# destroy desktop
+cmd + alt - w : yabai -m space --destroy
 
 # fast focus desktop
 cmd + alt - x : yabai -m space --focus recent
