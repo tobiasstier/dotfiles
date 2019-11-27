@@ -1,8 +1,10 @@
 export VIMINIT='let $MYVIMRC="~/.config/vim/vimrc" | source $MYVIMRC'
 
+export GVIMINIT='let $MYGVIMRC="~/.config/vim/gvimrc" | source $MYGVIMRC'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore Library --ignore Pictures --ignore Music --ignore .cache --ignore .local -g ""'
 
 fish_vi_key_bindings
-thefuck --alias | source 
+thefuck --alias | source
 
 #fisher bundle plugin
 if not functions -q fisher

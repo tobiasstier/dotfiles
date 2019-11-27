@@ -1,26 +1,67 @@
-:set relativenumber
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Move viminfo to new vim location in .config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set viminfo+=n~/.config/vim/viminfo
-" Auto install Plug https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
-if empty(glob('~/.config/vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Line numbers
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set relativenumber
+set number
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => cursorline stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303000 ctermbg=234
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Toggle autocompletion for command line in vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set wildmenu
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => MacVim gvim settings for GUI use of vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("gui_running")
+	syntax on
+	colorscheme slate
+	set guicursor+=a:blinkon0
 endif
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Auto install vimplug if not present in .config/vim/autoload
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
+	\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 source ~/.config/vim/autoload/plug.vim
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Install plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/vim/plugged')
-
 Plug 'vim-airline/vim-airline' "Status bar
-Plug 'vim-airline/vim-airline-themes' "Applicable themes
+Plug 'vim-airline/vim-airline-themes' "Applicable themes for airline
+Plug 'junegunn/fzf', { 'do': './install --all' } "fuzzy file finder
+Plug 'junegunn/fzf.vim' "fuzzy file finder
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} "Nerdtree
+Plug 'scrooloose/nerdtree' ", {'on': 'NERDTreeToggle'} Nerdtree
 Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocompletion
 Plug 'tomtom/tcomment_vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive' "Git tools
 Plug 'dikiaap/minimalist'
+Plug 'vim-latex/vim-latex'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
@@ -33,22 +74,32 @@ nnoremap zz :update<cr>
 " set clipboard to easily copy from vim and paste into OSx
 set clipboard=unnamed
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTree 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => fzf
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map ; :Files<CR>
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Changes NerdTree Toggle to Ctrl + n
-map <C-n> :NERDTreeToggle<CR> 
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
+map <C-n> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Conquer of Completion 
+" => Conquer of Completion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<Tab>" :
+	\ coc#refresh()
