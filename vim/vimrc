@@ -49,19 +49,21 @@ source ~/.config/vim/autoload/plug.vim
 " => Install plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.config/vim/plugged')
-Plug 'vim-airline/vim-airline' "Status bar
-Plug 'vim-airline/vim-airline-themes' "Applicable themes for airline
-Plug 'junegunn/fzf', { 'do': './install --all' } "fuzzy file finder
-Plug 'junegunn/fzf.vim' "fuzzy file finder
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree' ", {'on': 'NERDTreeToggle'} Nerdtree
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocompletion
-Plug 'tomtom/tcomment_vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-fugitive' "Git tools
-Plug 'dikiaap/minimalist'
-Plug 'vim-latex/vim-latex'
+	Plug 'vim-airline/vim-airline' "Status bar
+	Plug 'vim-airline/vim-airline-themes' "Applicable themes for airline
+
+	Plug 'junegunn/fzf', { 'do': './install --all' } "fuzzy file finder
+	Plug 'junegunn/fzf.vim' "fuzzy file finder
+
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'scrooloose/nerdtree' ", {'on': 'NERDTreeToggle'} Nerdtree
+	Plug 'neoclide/coc.nvim', {'branch': 'release'} "autocompletion
+	Plug 'tomtom/tcomment_vim' "vimcoemmnting
+	Plug 'SirVer/ultisnips'
+	Plug 'honza/vim-snippets'
+	Plug 'tpope/vim-fugitive' "Git tools
+	Plug 'dikiaap/minimalist'
+	Plug 'vim-latex/vim-latex'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
