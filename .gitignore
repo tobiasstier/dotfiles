@@ -4,8 +4,6 @@
 !fish/config.fish
 !fish/fishfile
 !yabai/yabairc
-!skhd/skhdrc
-!vim/vimrc
 !kitty/kitty.conf
-
+!doom/
 !*/
