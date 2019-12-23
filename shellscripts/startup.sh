@@ -8,11 +8,6 @@ brew install emacs-plus
 ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
 
 
-## download dotfiles
-mkdir .config
-cd .config
-https://github.com/tobiasstier/dotfiles.git .
-
 ## setup doom emacs
 ## install preliminary software
 brew install git clang ripgrep fd coreutils markdown shellcheck
