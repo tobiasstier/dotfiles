@@ -1,9 +1,22 @@
-export VIMINIT='let $MYVIMRC="~/.config/vim/vimrc" | source $MYVIMRC'
+export VIMINIT='let $MYVIMRC="~/.config/nvim/init.vim" | source $MYVIMRC'
 
-export GVIMINIT='let $MYGVIMRC="~/.config/vim/gvimrc" | source $MYGVIMRC'
+# set fish_greeting '
+# Toby2s Macbook Pro running
+#  ██████╗ ███████╗██╗  ██╗
+# ██╔═══██╗██╔════╝╚██╗██╔╝
+# ██║   ██║███████╗ ╚███╔╝
+# ██║   ██║╚════██║ ██╔██╗
+# ╚██████╔╝███████║██╔╝ ██╗
+# ╚═════╝ ╚══════╝╚═╝  ╚═╝
+# '
+
+function fish_greeting
+    echo (set_color blue) Here is your message in (set_color red) red(set_color white).
+end
+
+
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore Library --ignore Pictures --ignore Music --ignore .cache --ignore .local -g ""'
 
-fish_vi_key_bindings
 thefuck --alias | source
 
 #fisher bundle plugin
@@ -13,15 +26,4 @@ if not functions -q fisher
     fish -c fisher
 end
 
-
-
-
-
-
-
-
-
-
-alias v='vim'
-alias config="vim ~/.config"
 alias l='ls -lah'

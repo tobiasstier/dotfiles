@@ -28,10 +28,10 @@ cmd + alt - w : yabai -m space --destroy
 
 
 
-alt - a : yabai -m space --focus Vim
-alt - s : yabai -m space --focus Term
-alt - d : yabai -m space --focus Browser
-alt - f : yabai -m space --focus Music
+#alt - a : yabai -m space --focus Vim
+#alt - s : yabai -m space --focus Term
+#alt - d : yabai -m space --focus Browser
+#alt - f : yabai -m space --focus Music
 
 
 # fast focus desktop

@@ -34,11 +34,11 @@ yabai -m config mouse_action2                resize
 
 # general space settings
 yabai -m config layout                       bsp
-yabai -m config top_padding                  3
-yabai -m config bottom_padding               3
-yabai -m config left_padding                 3
-yabai -m config right_padding                3
-yabai -m config window_gap                   3
+yabai -m config top_padding                  0
+yabai -m config bottom_padding               0
+yabai -m config left_padding                 0
+yabai -m config right_padding                0
+yabai -m config window_gap                   5
 
 yabai -m space 1 --label Vim
 yabai -m space 2 --label Term 
@@ -46,6 +46,9 @@ yabai -m space 3 --label Browser
 yabai -m space 4 --label Music
 
 yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app=Emacs manage=on
+
+yabai -m rule --add app=Emacs  space=^1
 yabai -m rule --add app=MacVim space=^1
 yabai -m rule --add app=Safari space=^3
 yabai -m rule --add app=Music  space=^4
