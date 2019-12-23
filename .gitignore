@@ -1,9 +1,10 @@
 *
 
 !.gitignore
+!btt/*
 !fish/config.fish
 !fish/fishfile
 !yabai/yabairc
 !kitty/kitty.conf
-!doom/
+!doom/*
 !*/
