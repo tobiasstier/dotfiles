@@ -1,5 +1,3 @@
-export VIMINIT='let $MYVIMRC="~/.config/nvim/init.vim" | source $MYVIMRC'
-
 # set fish_greeting '
 # Toby2s Macbook Pro running
 #  ██████╗ ███████╗██╗  ██╗
@@ -9,15 +7,13 @@ export VIMINIT='let $MYVIMRC="~/.config/nvim/init.vim" | source $MYVIMRC'
 # ╚██████╔╝███████║██╔╝ ██╗
 # ╚═════╝ ╚══════╝╚═╝  ╚═╝
 # '
+starship init fish | source
+
+
 
 function fish_greeting
-    echo (set_color blue) Here is your message in (set_color red) red(set_color white).
+    echo (set_color green) Creepuuuhh ----(set_color red) awwwww maaaaaan!
 end
-
-
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore Library --ignore Pictures --ignore Music --ignore .cache --ignore .local -g ""'
-
-thefuck --alias | source
 
 #fisher bundle plugin
 if not functions -q fisher

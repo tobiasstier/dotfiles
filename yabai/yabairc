@@ -18,8 +18,8 @@ yabai -m config window_opacity               off
 yabai -m config window_opacity_duration      0.0
 yabai -m config window_shadow                on
 yabai -m config window_border                on
-yabai -m config window_border_placement      interior
-yabai -m config window_border_width          2
+yabai -m config window_border_placement      exterior
+yabai -m config window_border_width          1
 yabai -m config window_border_radius         0
 yabai -m config active_window_border_topmost off
 yabai -m config active_window_border_color   0xFF52B640
@@ -49,7 +49,6 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app=Emacs manage=on
 
 yabai -m rule --add app=Emacs  space=^1
-yabai -m rule --add app=MacVim space=^1
 yabai -m rule --add app=Safari space=^3
 yabai -m rule --add app=Music  space=^4
 echo "yabai configuration loaded.."
