@@ -28,7 +28,7 @@ echo "Setting up useful brew installations"
 brew install htop fish jq trash osx-cpu-temp
 brew tap koekeishiya/formulae:
 brew install --HEAD yabai
-brew cask install brave-browser bettertouchtool kitty
+brew cask install bettertouchtool kitty
 brew services start
 
 ## make fish the standard shell
