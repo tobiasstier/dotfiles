@@ -10,27 +10,13 @@ brew install emacs-plus
 ln -s /usr/local/opt/emacs-plus/Emacs.app /Applications/Emacs.app
 
 
-## setup doom emacs
-## install preliminary software
-echo "Setting up DOOM emacs"
-echo "Installing brew dependencies"
-brew install git clang ripgrep fd coreutils markdown shellcheck
-## set up doom install repo
-echo "Cloning doom emacs to .emacs.d and rinning install executable"
-git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
-## remove the doom folder in $HOME, but should not be created according to doom documentation
-rm -rf ~/.doom
-
-
 echo "Setting up useful brew installations"
 ## brew installations
-brew install htop fish jq trash osx-cpu-temp
+brew install htop jq trash osx-cpu-temp tmux
 brew tap koekeishiya/formulae:
 brew install --HEAD yabai
-brew cask install bettertouchtool kitty
+sudo yabai --install-sa
+brew cask install bettertouchtool kitty qutebrowser
 brew services start
 
-## make fish the standard shell
-echo "changing shell to fish"
-chsh -s /usr/local/bin/fish
+
