@@ -1,2 +1,5 @@
 alias ls="ls -G"
-alias l="ls -laGh"
+alias l="ls -lAGh"
+alias f="fuck"
+alias v="nvim"
+alias icat="kitty +kitten icat"

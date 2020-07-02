@@ -6,4 +6,5 @@
 !kitty/kitty.conf
 !bash/*
 !shellscripts/*
+!nvim/init.vim
 !*/
