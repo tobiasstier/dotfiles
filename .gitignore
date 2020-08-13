@@ -5,6 +5,6 @@
 !yabai/yabairc
 !kitty/kitty.conf
 !bash/*
+!emacs/init.el
 !shellscripts/*
-!nvim/init.vim
 !*/

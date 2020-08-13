@@ -1,7 +1,7 @@
 for f in ~/.config/bash/*.rc; do
    . $f
 done
-
+export LANG=dk_NO.UTF-8
 export HISTFILE=~/.config/bash/
 eval $(thefuck --alias)
 
